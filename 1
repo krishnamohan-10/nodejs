@@ -1,0 +1,55 @@
+Java script asynchronous programming – fetch weather info from
+https://api.openweathermap.org/data/2.5/weather?q=${inputCity}&units=metric&lang=en&appid=${APIKey}
+With APIKey 69fb4b02358c349120c314202ebb13ac
+using Promise – then, async/await syntax & show the temperature info in Celsius.
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            const APIKey = '69fb4b02358c349120c314202ebb13ac';            
+
+            async function getWeatherInfo() {
+                let inputCity = document.getElementById('textbox1').value;
+                console.log(inputCity);
+
+                const apiUrl =
+`https://api.openweathermap.org/data/2.5/weather?q=${inputCity}&units=metric&lang=en&appid=${APIKey}`;
+
+                try{
+                    let response = await fetch(apiUrl);
+                    let data = await response.json();
+                    console.log(data);
+
+                    let city = data.name;
+                    let temp = data.main.temp;
+                    let desc = data.weather[0].description;
+
+                    document.getElementById('cityName').textContent = `${city}`;
+                    document.getElementById('temperature').textContent = `${temp}`;
+                    document.getElementById('description').textContent = `${desc}`;
+                }
+                catch (error){
+                    console.log(`Reason is : ${error}`);
+                }
+                finally {
+                    console.log('Execution Completed');
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <input type="text" id="textbox1" placeholder="Enter City Name" style="margin-right: 5px;">
+        <button onclick="getWeatherInfo()">Get Weather Info</button>
+        <br>
+
+        <h1>Weather Info</h1>
+        <div id="weather">
+          <h2>City : <label id="cityName"></label></h2>
+          Temperature : <label id="temperature"></label>
+          <br>
+          Weather Description: <label id="description"></label>
+        </div>
+    </body>
+</html>
