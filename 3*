@@ -1,0 +1,44 @@
+Develop any server web application using JSP scriptlets, tag library. Dynamically show
+
+the web page, based on some input parameter passed from the client (in URL)
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JSP Basic Example</title>
+    </head>
+    <body>
+        <h1>JSP Hello World!</h1>
+
+        <h2>Using JSP scriptlets</h2>
+
+        <%
+            String param1 = request.getParameter("param1");
+            String description;
+
+            if (param1.length() < 5) {
+                description = "Very short value passed for param1";
+            } else {
+                description = "param1 length is " + param1.length();
+            }
+        %>
+
+        <b>Parameter in request is: <%= request.getParameter("param1") %> </b>
+        <b>Description: <%= description %> </b>
+
+        <br><br>
+
+        <h2>Using JSP Expression Language and JSTL</h2>
+        <b>Parameter in request is: ${param.param1} </b>
+
+        <c:choose>
+            <c:when test="${param.param1.length() < 5}">
+                <b>Description: Very short value passed for param1 </b>
+            </c:when>
+            <c:otherwise>
+                <b>Description: param1 length is ${param.param1.length()} </b>
+            </c:otherwise>
+        </c:choose>
+
+    </body>
+</html>
