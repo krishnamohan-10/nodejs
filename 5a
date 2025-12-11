@@ -1,0 +1,62 @@
+Develop any server application using Express module accepting POST, GET, PUT, DELETE APIs, for Students data
+having information like rollno, name, phone number.
+
+Step 1: Setup Express App
+npm init -y
+npm install express
+Step 2: app.js
+const express = require('express');
+const app = express();
+app.use(express.json());
+let students = []; // In-memory storage
+// Create (POST)
+app.post('/students', (req, res) => {
+const student = req.body;
+students.push(student);
+res.status(201).send({ message: "Student added", student });
+});
+// Read All (GET)
+app.get('/students', (req, res) => {
+res.send(students);
+});
+// Read by Roll No (GET)
+app.get('/students/:rollno', (req, res) => {
+const student = students.find(s => s.rollno == req.params.rollno);
+if (student) res.send(student);
+else res.status(404).send({ message: "Student not found" });
+});
+// Update (PUT)
+app.put('/students/:rollno', (req, res) => {
+const index = students.findIndex(s => s.rollno == req.params.rollno);
+if (index !== -1) {
+students[index] = { ...students[index], ...req.body };
+res.send({ message: "Student updated", student: students[index] });
+} else {
+res.status(404).send({ message: "Student not found" });
+}
+});
+// Delete (DELETE)
+app.delete('/students/:rollno', (req, res) => {
+const index = students.findIndex(s => s.rollno == req.params.rollno);
+if (index !== -1) {
+const deleted = students.splice(index, 1);
+res.send({ message: "Student deleted", student: deleted[0] });
+} else {
+res.status(404).send({ message: "Student not found" });
+}
+});
+// Start server
+app.listen(3000, () => console.log('Server running on http://localhost:3000'));
+-> how to test with Postman (post)- POST 
+http://localhost:3000/students
+Body (JSON):
+{
+"rollno": 101,
+"name": "Alice",
+"phone": "9876543210"
+} (get) - GET http://localhost:3000/students (put)- PUT http://localhost:3000/students/101
+Body:
+{
+"phone": "9123456789"
+} (delete)-
+DELETE http://localhost:3000/students/101
