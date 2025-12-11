@@ -1,0 +1,36 @@
+XML + XSD for Bookstore
+bookstore.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<bookstore xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="bookstore.xsd">
+<book>
+<title>Effective Java</title>
+<author>Joshua Bloch</author>
+<price>45.00</price>
+<year>2018</year>
+</book>
+<book>
+<title>Clean Code</title>
+<author>Robert C. Martin</author>
+<price>40.00</price>
+<year>2008</year>
+</book>
+</bookstore> bookstore.xsd <?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="bookstore">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="book" maxOccurs="unbounded">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="title" type="xs:string"/>
+<xs:element name="author" type="xs:string"/>
+<xs:element name="price" type="xs:decimal"/>
+<xs:element name="year" type="xs:gYear"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:schema>
