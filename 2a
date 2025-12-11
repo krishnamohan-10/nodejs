@@ -1,0 +1,120 @@
+ index.html – Create User Account Form (with linked CSS & JS) 
+<!DOCTYPE html>
+<html>
+<head>
+<title>Create User Account</title>
+<link rel="stylesheet" href="styles.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<div class="container">
+<h2>Create Account</h2>
+<form id="registerForm">
+<label for="username">Email:</label>
+<input type="text" id="username" name="username">
+<span class="error" id="usernameError"></span>
+<label for="password">Password:</label>
+<input type="password" id="password" name="password">
+<span class="error" id="passwordError"></span>
+<label for="confirmPassword">Confirm Password:</label>
+<input type="password" id="confirmPassword" name="confirmPassword">
+<span class="error" id="confirmPasswordError"></span>
+<label for="dob">Date of Birth:</label>
+<input type="date" id="dob" name="dob">
+<span class="error" id="dobError"></span>
+<button type="submit">Register</button>
+</form>
+</div>
+</body>
+</html> styles.css – External CSS Styling body {
+font-family: Arial, sans-serif;
+background-color: #f0f0f0;
+padding: 30px;
+}
+.container {
+background-color: white;
+padding: 25px;
+border-radius: 8px;
+max-width: 400px;
+margin: auto;
+box-shadow: 0px 0px 10px #aaa;
+}
+h2 {
+text-align: center;
+color: #333;
+}
+form label {
+display: block;
+margin-top: 15px;
+font-weight: bold;
+}
+form input {
+width: 100%;
+padding: 10px;
+margin-top: 5px;
+box-sizing: border-box;
+}
+button {
+margin-top: 20px;
+width: 100%;
+padding: 10px;
+background-color: #2e86de;
+color: white;
+border: none;
+cursor: pointer;
+}
+button:hover {
+background-color: #1b4f72;
+}
+.error {
+color: red;
+font-size: 13px;
+} script.js – External JS for Form Validation
+document.getElementById("registerForm").addEventListener("submit", function (e) {
+e.preventDefault(); // Prevent form submission
+// Clear previous errors
+document.querySelectorAll(".error").forEach(el => el.textContent = "");
+// Get values
+const username = document.getElementById("username").value.trim();
+const password = document.getElementById("password").value.trim();
+const confirmPassword = document.getElementById("confirmPassword").value.trim();
+const dob = document.getElementById("dob").value.trim();
+let valid = true;
+// Check empty fields
+if (username === "") {
+document.getElementById("usernameError").textContent = "Username (email) is required.";
+valid = false;
+}
+if (password === "") {
+document.getElementById("passwordError").textContent = "Password is required.";
+valid = false;
+}
+if (confirmPassword === "") {
+document.getElementById("confirmPasswordError").textContent = "Please confirm your password.";
+valid = false;
+}
+if (dob === "") {
+document.getElementById("dobError").textContent = "Date of Birth is required.";
+valid = false;
+}
+// Email format validation
+const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+if (username && !emailPattern.test(username)) {
+document.getElementById("usernameError").textContent = "Invalid email format.";
+valid = false;
+}
+// Password length check
+if (password && password.length < 8) {
+document.getElementById("passwordError").textContent = "Password must be at least 8 characters.";
+valid = false;
+}
+// Password match check
+if (password && confirmPassword && password !== confirmPassword) {
+document.getElementById("confirmPasswordError").textContent = "Passwords do not match.";
+valid = false;
+}
+if (valid) {
+alert("Account created successfully!");
+// Optionally reset form: this.reset();
+}
+});
