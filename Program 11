@@ -1,0 +1,16 @@
+<html>
+<body>
+<script>
+var a=[1,2,3,4];
+var b=[];
+b[0]="apple";
+b[1]="orange";
+b[2]="mango";
+b[3]="grapes";
+for(var i=0;i<a.length;i++)
+document.write(a[i]+"<br>");
+for(var i=0;i<b.length;i++)
+document.write(b[i]+"<br>");
+</script>
+</body>
+</html>
