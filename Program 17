@@ -1,0 +1,11 @@
+<html>
+<body>
+<script>
+var person = new Object();
+person.name = "John";
+person.age = 50;
+person.sex = "Male";
+document.write("Name: "+person.name + "<br>"+"Age: "+person.age+"<br>"+"Sex: "+person["sex"]);
+</script>
+</body>
+</html>
