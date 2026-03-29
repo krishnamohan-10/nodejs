@@ -1,0 +1,11 @@
+<html>
+<body>
+<script>
+function display()
+{
+document.write("Hello World");
+}
+display();
+</script>
+</body>
+</html>
