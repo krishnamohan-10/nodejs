@@ -1,0 +1,14 @@
+<html>
+<body>
+<script>
+function Person(name, age, sex)
+{
+this.name = name;
+this.age = age;
+this.sex = sex;
+}
+var p=new Person("Banu",30,"Female");
+document.write("Name: "+p.name + "<br>"+"Age: "+p.age+"<br>"+"Sex: "+p["sex"]);
+</script>
+</body>
+</html>
