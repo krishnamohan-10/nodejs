@@ -1,0 +1,22 @@
+<html>
+<body>
+<script>
+var a=[[1,2,3,4],[1,2,3,4],[1,2,3,4],
+[1,2,3,4]];
+document.write("Access through Rows<br>");
+for (var i = 0;i< a.length; i++)
+{
+document.write(a[i]+"<br>");
+}
+document.write("Access through each element<br>");
+for (var i = 0;i< a.length; i++)
+{
+for(var j = 0;j< a[i].length; j++)
+{
+document.write(a[i][j]+"\t");
+}
+document.write("<br>");
+}
+</script>
+</body>
+</html>
