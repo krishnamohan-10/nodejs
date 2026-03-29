@@ -1,0 +1,19 @@
+<script>
+function transpose(a,b)
+{
+var t=a;
+a=b;
+b=t;
+document.write("<br>Inside Function<br>")
+document.write("<br>a="+a);
+document.write("<br>b="+b);
+}
+var x=5,y=7;
+document.write("<br>Before Function Call<br>")
+document.write("<br>x="+x);
+document.write("<br>y="+y);
+transpose(x,y)
+document.write("<br>After Function Call<br>")
+document.write("<br>x="+x);
+document.write("<br>y="+y);
+</script>
