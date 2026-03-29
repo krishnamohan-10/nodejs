@@ -1,0 +1,17 @@
+<script>
+function display()
+{
+document.write("<br><b>"+"Details of Employee"+"</b>"+"<br>");
+document.write("Name: "+Employee.name + "<br>"+"No: "+Employee.No+"<br>"+"Salary: "+Employee["salary"]);
+}
+function modify(x)
+{
+x.name="Rani";
+}
+var Employee={name:"Raja",No:123, salary:50000,view:display};
+document.write("<br> Before Function call");
+Employee.view();
+modify(Employee);
+document.write("<br> After Function call");
+Employee.view();
+</script>
