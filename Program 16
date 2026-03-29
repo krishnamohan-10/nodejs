@@ -1,0 +1,13 @@
+<html>
+<body>
+<script>
+function display()
+{
+document.write("<b>"+"Details of Employee"+"</b>"+"<br>");
+document.write("Name: "+Employee.name + "<br>"+"No: "+Employee.No+"<br>"+"Salary: "+Employee["salary"]);
+}
+var Employee={name:"Raja",No:123, salary:50000,view:display};
+Employee.view();
+</script>
+</body>
+</html>
