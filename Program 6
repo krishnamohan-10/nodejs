@@ -1,0 +1,9 @@
+<script>
+var a=15,b=30,c="hello",d='hello';
+document.write("<br>=="+(a==b));
+document.write("<br>==="+(c===d));
+document.write("<br>"+(a>=b));
+document.write("<br>"+(a<=b));
+document.write("<br>")
+document.write((a>b)?"greater":"smaller");
+</script>
