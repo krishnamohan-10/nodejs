@@ -1,0 +1,9 @@
+<html>
+<body>
+<script>
+var Employee={name:"Raj",No:123, salary:50000};
+document.write("<b>"+"Details of Employee"+"</b>"+"<br>");
+document.write("Name: "+Employee.name + "<br>"+"No: "+Employee.No+"<br>"+"Salary: "+Employee["salary"]);
+</script>
+</body>
+</html>
