@@ -1,0 +1,11 @@
+<html> 
+<body>
+<script src="s.js">
+</script>
+</body>
+</html>
+
+//External Java Script File
+//HTML file 
+//s.js
+document.write("Hello World");
