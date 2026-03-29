@@ -1,0 +1,13 @@
+<html>
+<body>
+<script>
+function add(a,b)
+{
+return(a+b);
+}
+var x=parseInt(prompt("Enter a number"));
+var y=parseInt(prompt("Enter a number"));
+document.write("sum="+add(x,y));
+</script>
+</body>
+</html>
