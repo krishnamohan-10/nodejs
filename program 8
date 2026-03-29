@@ -1,0 +1,11 @@
+<html>
+<body>
+<script>
+var a=prompt("enter a number");
+if(a%2==0)
+alert(a+" is an even number");
+else
+alert(a+" is an odd number");
+</script>
+</body>
+</html>
