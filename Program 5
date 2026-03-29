@@ -1,0 +1,13 @@
+<html>
+<body>
+<script>
+var a=15,b;
+b=a;
+document.write("a="+a);
+document.write("<br>b="+b);
+a+=5;
+b*=3;
+document.write("<br>+="+a);
+document.write("<br>+="+b);</script>
+</body>
+</html>
